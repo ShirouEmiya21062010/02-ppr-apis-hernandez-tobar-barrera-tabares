@@ -76,3 +76,28 @@ if respuesta.status_code == 200:
 else:
     print("Error al obtener usuario")
     exit()
+
+#Desarrollador 4: Victor Andres Tabares Avila
+
+nombre = usuario["firstName"]
+apellido = usuario["lastName"]
+ciudad = usuario["address"]["city"]
+
+mensaje = (
+    f"El cliente con más productos regulares es {nombre} {apellido} "
+    f"(ID: {user_id}), de la ciudad de {ciudad}. "
+    f"Compró un total de {max_productos} productos válidos."
+)
+
+
+print("=" * 60)
+print("        REPORTE DE AUDITORÍA - DOLPHIN'S STORE")
+print("=" * 60)
+print(mensaje)
+print("=" * 60)
+
+
+with open("reporte_auditoria.txt", "w", encoding="utf-8") as archivo:
+    archivo.write(mensaje)
+
+print("Archivo reporte_auditoria.txt generado correctamente")
